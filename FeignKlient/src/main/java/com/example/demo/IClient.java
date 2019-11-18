@@ -8,16 +8,19 @@ package com.example.demo;
 import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  *
  * @author stefan.tomasik
  */
-
-
-@FeignClient(name="product-service", url="localhost:8182/")
+@FeignClient(name = "product-service", url = "localhost:8182/")
 public interface IClient {
 
-      @GetMapping(value="all/")
+    @GetMapping(value = "all/")
     public List<Zaner> getZaners();
+
+    @PostMapping("add/")
+    public void addZaner();
+
 }
